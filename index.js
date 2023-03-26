@@ -30,31 +30,35 @@ const upload = multer({
 })
 ConnectDB();
 //akram
-app.get("/", (req, res) => {
-    res.status(200).json({ message: "get data" });
+// app.get("/", (req, res) => {
+//     res.status(200).json({ message: "get data" });
+// })
+app.get("/my", (req, res) => {
+    res.send("Hello akram khan....")
 })
+
 app.use(cors());
 app.use(errorHandler);
-app.use('/profile', express.static('upload/images'))
+//app.use('/profile', express.static('upload/images'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
-app.use("/DreamCoder/api", require("./backend/routes/dashbordRoutes"))
-app.use("/DreamCoder/api", require("./backend/routes/countryRoutes"))
-app.use("/DreamCoder/api", require("./backend/routes/courseRoutes"))
-app.use("/DreamCoder/api/student", require("./backend/routes/studentRoutes"))
-app.use("/DreamCoder/api/employe", require("./backend/routes/employeRoutes"))
-app.use('/DreamCoder/api/users', require('./backend/routes/userRoutes'))
-app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
-app.use('/DreamCoder/api', require('./backend/routes/productRoutes'))
-app.use('/DreamCoder/api', require('./backend/routes/addtocartRoutes'))
-app.use('/DreamCoder/api', require('./backend/routes/wishListRoutes'))
-app.post('/DreamCoder/upload', upload.single('profile'), (req, res) => {
-    console.log(req.file);
-    res.json({
-        success: 1,
-        profile_url: `http://localhost:${port}/profile/${req.file.filename}`
-    })
-})
+//app.use("/DreamCoder/api", require("./backend/routes/dashbordRoutes"))
+//app.use("/DreamCoder/api", require("./backend/routes/countryRoutes"))
+//app.use("/DreamCoder/api", require("./backend/routes/courseRoutes"))
+//app.use("/DreamCoder/api/student", require("./backend/routes/studentRoutes"))
+//app.use("/DreamCoder/api/employe", require("./backend/routes/employeRoutes"))
+//app.use('/DreamCoder/api/users', require('./backend/routes/userRoutes'))
+//app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
+//app.use('/DreamCoder/api', require('./backend/routes/productRoutes'))
+//app.use('/DreamCoder/api', require('./backend/routes/addtocartRoutes'))
+//app.use('/DreamCoder/api', require('./backend/routes/wishListRoutes'))
+//app.post('/DreamCoder/upload', upload.single('profile'), (req, res) => {
+//   console.log(req.file);
+// res.json({
+//    success: 1,
+//  profile_url: `http://localhost:${port}/profile/${req.file.filename}`
+//})
+//})
 app.listen(port, () => {
     console.log(`app server started on port ${port}`)
 })
