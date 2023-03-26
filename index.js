@@ -33,8 +33,8 @@ ConnectDB();
 // app.get("/", (req, res) => {
 //     res.status(200).json({ message: "get data" });
 // })
-app.get("/my", (req, res) => {
-    res.send("Hello akram khan....")
+app.get("/myy", (req, res) => {
+    res.send("Hello ...")
 })
 
 app.use(cors());
