@@ -1,11 +1,22 @@
-const express = require("express");
+
+const express = require('express');
+const cors = require('cors')
+const dotenv = require('dotenv').config();
+const port = process.env.PORT || 5000;
+//const { errorHandler } = require('./backend/middleware/errorMiddleware')
+const ConnectDB = require('./backend/config/db');
 const app = express();
-
+ConnectDB();
+app.use(cors());
+app.use(express.json());
 app.get("/myyy", (req, res) => {
-    res.send("Hello akram khan..sddsds..")
+    res.send("Hello akram khan....LightCode")
 })
+app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
 
-app.listen(8000);
+app.listen(port, () => {
+    console.log(`app server started on port ${port}`)
+})
 
 
 // const express = require('express');
