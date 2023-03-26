@@ -11,12 +11,6 @@ const registerUser = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error("Please add all fields")
     }
-    // let checkemail = email.includes("@gmail.com")
-    // if (!checkemail) {
-    //     res.status(400)
-    //     throw new Error("please add @gmail.com")
-    // }
-    //check userExists User Email
     const userExists = await User.findOne({ email })
     // console.log("====>>", userExists);
     if (userExists) {
