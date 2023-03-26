@@ -4,13 +4,13 @@ const cors = require('cors')
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
 //const { errorHandler } = require('./backend/middleware/errorMiddleware')
-//const ConnectDB = require('./backend/config/db');
+const ConnectDB = require('./backend/config/db');
 const app = express();
-//ConnectDB();
+ConnectDB();
 app.use(cors());
 app.use(express.json());
 app.get("/myyy", (req, res) => {
-    res.send("Hello akram khan.....")
+    res.send("Hello akram khan..")
 })
 app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
 
