@@ -10,7 +10,7 @@ ConnectDB();
 app.use(cors());
 app.use(express.json());
 app.get("/myyy", (req, res) => {
-    res.send("Hello akram khan....LightCode")
+    res.send("Hello akram khan.... L ightCode")
 })
 app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
 
