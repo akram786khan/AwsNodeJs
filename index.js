@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-app.get("/my", (req, res) => {
+app.get("/myyy", (req, res) => {
     res.send("Hello akram khan..sddsds..")
 })
 
