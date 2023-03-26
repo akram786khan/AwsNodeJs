@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const ConnectDB = async () => {
     try {
         const conn = await mongoose.connect("mongodb+srv://akram:Solanki167@travesycluster0.sg3iqyi.mongodb.net/DreamCoder",
-         {
-            useNewUrlParser:true,
-            useUnifiedTopology:true,
-        }
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+            }
         )
-        //console.log("=====>", conn)
+        console.log("=====>", conn)
     }
     catch (error) {
         console.log("==error==", error);
