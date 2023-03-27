@@ -15,7 +15,7 @@ app.use(
 );
 app.use(express.json());
 app.get("/myy", (req, res) => {
-    res.send("Hello....akram baba")
+    res.send("Hello....akram")
 
 })
 
@@ -8402,7 +8402,7 @@ app.get('/malefaction/products', async (req, res) => {
 app.get('/AllCategories', async (req, res) => {
     res.status(200).json({ status: true, data: Categories })
 });
-//app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
+app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
 
 
 
