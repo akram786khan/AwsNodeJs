@@ -8402,7 +8402,17 @@ app.get('/malefaction/products', async (req, res) => {
 app.get('/AllCategories', async (req, res) => {
     res.status(200).json({ status: true, data: Categories })
 });
+app.use(express.urlencoded({ extended: false }))
+app.use("/DreamCoder/api", require("./backend/routes/dashbordRoutes"))
+app.use("/DreamCoder/api", require("./backend/routes/countryRoutes"))
+app.use("/DreamCoder/api", require("./backend/routes/courseRoutes"))
+app.use("/DreamCoder/api/student", require("./backend/routes/studentRoutes"))
+app.use("/DreamCoder/api/employe", require("./backend/routes/employeRoutes"))
+app.use('/DreamCoder/api/users', require('./backend/routes/userRoutes'))
 app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
+app.use('/DreamCoder/api', require('./backend/routes/productRoutes'))
+app.use('/DreamCoder/api', require('./backend/routes/addtocartRoutes'))
+app.use('/DreamCoder/api', require('./backend/routes/wishListRoutes'))
 
 
 
