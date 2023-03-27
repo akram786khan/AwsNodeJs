@@ -5,12 +5,12 @@ const { protect } = require('../middleware/authMiddleware');
 router.post('/signup', registerUser);
 router.post('/login', loginUser);
 router.get('/me', protect, getMe);
-router.post('/signup', (req, res) => {
-    res.send("this is signUp route")
-});
-router.post('/login', (req, res) => {
-    res.send("this is login route")
-});
+// router.post('/signup', (req, res) => {
+//     res.send("this is signUp route")
+// });
+// router.post('/login', (req, res) => {
+//     res.send("this is login route")
+// });
 // router.get('/me', (req, res) => {
 //     res.send("this is get me route")
 // });
