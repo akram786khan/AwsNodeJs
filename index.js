@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
+const path = require("path");
 //const { errorHandler } = require('./backend/middleware/errorMiddleware')
 //const ConnectDB = require('./backend/config/db');
 const app = express();
@@ -8383,8 +8384,13 @@ const NewArrivalsTrousers = [
 
 
 
+// app.use((error, req, res, next) => {
+//     const status = error.code || error.status_code || 500;
+//     res.status(status);
+//     res.json({ message: error.message || "Something went wrong #MAIN" });
+// });
 
-
+app.use("/uploads/images", express.static(path.join("uploads", "images")));
 app.get('/malefaction/products', async (req, res) => {
     res.status(200).json({
         status: true, data: [
