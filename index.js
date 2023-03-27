@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require('cors')
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 5000;
+const { check } = require("express-validator");
 const path = require("path");
 //const { errorHandler } = require('./backend/middleware/errorMiddleware')
 //const ConnectDB = require('./backend/config/db');
@@ -8433,8 +8434,11 @@ app.use('/DreamCoder/api', require('./backend/routes/wishListRoutes'))
 app.post(
     "/create",
     fileUpload("vacant").array("photo", 5),
+
     (req, res) => {
-        res.json({ message: "image added" })
+        console.log("======>>", req);
+        console.log("------->>>", req.files);
+        res.json({ message: "image added...", image: `https://awsnodejs.onrender.com/uploads/images/vacant/${req.files[0].filename}` })
     }
 );
 
