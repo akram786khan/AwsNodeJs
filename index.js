@@ -8,6 +8,7 @@ const path = require("path");
 //const { errorHandler } = require('./backend/middleware/errorMiddleware')
 //const ConnectDB = require('./backend/config/db');
 const app = express();
+const fileUpload = require("./backend/utils/fileUpload");
 //ConnectDB();
 app.use(
     cors({
@@ -8384,11 +8385,11 @@ const NewArrivalsTrousers = [
 
 
 
-// app.use((error, req, res, next) => {
-//     const status = error.code || error.status_code || 500;
-//     res.status(status);
-//     res.json({ message: error.message || "Something went wrong #MAIN" });
-// });
+app.use((error, req, res, next) => {
+    const status = error.code || error.status_code || 500;
+    res.status(status);
+    res.json({ message: error.message || "Something went wrong #MAIN" });
+});
 
 app.use("/uploads/images", express.static(path.join("uploads", "images")));
 app.get('/malefaction/products', async (req, res) => {
@@ -8421,7 +8422,21 @@ app.use('/DreamCoder/api', require('./backend/routes/addtocartRoutes'))
 app.use('/DreamCoder/api', require('./backend/routes/wishListRoutes'))
 
 
+// app.post('/DreamCoder/upload', upload.single('profile'), (req, res) => {
+//   console.log(req.file);
+// res.json({
+//    success: 1,
+//  profile_url: `http://localhost:${port}/profile/${req.file.filename}`
+// })
+// })
 
+app.post(
+    "/create",
+    fileUpload("vacant").array("photo", 5),
+    (req, res) => {
+        res.json({ message: "image added" })
+    }
+);
 
 // const express = require('express');
 // const multer = require('multer')
