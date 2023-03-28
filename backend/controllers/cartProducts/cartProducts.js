@@ -12,26 +12,28 @@ const getCartProduct = async (req, res) => {
 
 
     if (!data.length) {
-        res.status(200).json({ status: false, message: [] })
+        res.status(200).json({ status: false, message: ["Cart is Empty"] })
     }
     res.status(200).json({ status: true, message: data })
 }
 const addCartProduct = asyncHandler(async (req, res) => {
     console.log("rerrrrr======>", req.user)
-    const { title, dis, price, reting, img, color, size, qun } = req.body
-    if (!title && !dis && !price && !reting && !img && !color && !size && !qun) {
+    const { title, Image, disPrice, sellingPrice, COD, disPrsent, color, Status, size, quentity } = req.body
+    if (!title && !Image && !disPrice && !sellingPrice && !COD && !disPrsent && !color && !Status && !size && quentity) {
         res.status(400).json({ message: "Please add all Filed" })
     }
 
     let data = await cartproduct.create({
         title,
-        dis,
-        img,
-        price,
-        reting,
+        Image,
+        disPrice,
+        sellingPrice,
+        COD,
+        disPrsent,
         color,
+        Status,
         size,
-        qun,
+        quentity,
         User_id: req.user
     });
     if (!data) {
