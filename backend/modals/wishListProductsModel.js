@@ -1,30 +1,10 @@
 const mongoose = require("mongoose")
 const projectwishListschema = new mongoose.Schema({
-    title: {
-        type: String,
-    },
-    dis: {
-        type: String,
-    },
-    price: {
-        type: String,
-    },
-    reting: {
-        type: String,
-
-    },
-    color: {
-        type: String,
-
-    },
-    img: {
-        type: String,
-
-    },
-    size: {
-        type: String,
-
-    },
+    title: { type: String },
+    dis: { type: String },
+    price: { type: Number },
+    disPrsent: { type: String },
+    img: { type: String },
     User_id: {
         type: String,
     }

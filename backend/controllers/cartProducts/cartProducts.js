@@ -11,10 +11,12 @@ const getCartProduct = async (req, res) => {
     let data = await cartproduct.find({ User_id: req.user });
 
 
+
     if (!data.length) {
-        res.status(200).json({ status: false, message: ["Cart is Empty"] })
+        res.status(400).json({ status: false, massage: "cart is empty" })
     }
-    res.status(200).json({ status: true, message: data })
+    console.log("====>", data);
+    res.status(200).json({ status: true, data })
 }
 const addCartProduct = asyncHandler(async (req, res) => {
     console.log("rerrrrr======>", req.user)

@@ -10,25 +10,23 @@ const getWishListProduct = async (req, res) => {
 
 
     if (!data.length) {
-        res.status(200).json({ status: false, message: [] })
+        res.status(200).json({ status: false, message: ["Wishlist is empty"] })
     }
     res.status(200).json({ status: true, message: data })
 }
 const addWishListProduct = asyncHandler(async (req, res) => {
     console.log("rerrrrr======>", req.user)
-    const { title, dis, price, reting, img, color, size, qun } = req.body
-    if (!title && !dis && !price && !reting && !img && !color && !size) {
+    const { title, disPrsent, img, price, reting } = req.body
+    if (!title && !disPrsent && !img && !price && !reting) {
         res.status(400).json({ message: "Please add all Filed" })
     }
 
     let data = await wishListproduct.create({
         title,
-        dis,
+        disPrsent,
         img,
         price,
         reting,
-        color,
-        size,
         User_id: req.user
     });
     if (!data) {
