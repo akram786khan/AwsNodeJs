@@ -8421,7 +8421,7 @@ app.use('/DreamCoder/api/userAuth', require('./backend/routes/userAuthRoutes'))
 app.use('/DreamCoder/api', require('./backend/routes/productRoutes'))
 app.use('/DreamCoder/api', require('./backend/routes/addtocartRoutes'))
 app.use('/DreamCoder/api', require('./backend/routes/wishListRoutes'))
-
+app.use('/DreamCoder/api', require('./backend/routes/profileRoutes'))
 
 // app.post('/DreamCoder/upload', upload.single('profile'), (req, res) => {
 //   console.log(req.file);
@@ -8436,7 +8436,7 @@ app.post(
     fileUpload("vacant").array("photo", 5),
 
     (req, res) => {
-        console.log("======>>", req);
+        console.log("====dddd.body==>>", req.body);
         console.log("------->>>", req.files);
         res.json({ message: "image added...", image: `https://awsnodejs.onrender.com/uploads/images/vacant/${req.files[0].filename}` })
     }

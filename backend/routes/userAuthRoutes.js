@@ -4,10 +4,7 @@ const { check } = require("express-validator");
 const { registerUser, loginUser, getMe } = require('../controllers/userAuthController')
 const { protect } = require('../middleware/authMiddleware');
 router.post('/signup', registerUser);
-router.post('/login', [
-    check("email").notEmpty().withMessage("email is required."),
-    check("password").notEmpty().withMessage("password is required."),
-], loginUser);
+router.post('/login', loginUser);
 router.get('/me', protect, getMe);
 // router.post('/signup', (req, res) => {
 //     res.send("this is signUp route")

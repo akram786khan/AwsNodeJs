@@ -16,10 +16,6 @@ const UserAuthSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Please add an password']
     },
-    number: {
-        type: Number,
-        required: [true, 'Please add an Number']
-    },
     gender: {
         type: String,
         required: [true, 'Please add an gender']
